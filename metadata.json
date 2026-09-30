@@ -1,0 +1,6 @@
+{
+  "name": "WoW Forever - Creador de Identidad & Oráculo Rolero",
+  "description": "Generador de nombres y apellidos de fantasía para World of Warcraft con guía interactiva de personalidad para clase y raza.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
