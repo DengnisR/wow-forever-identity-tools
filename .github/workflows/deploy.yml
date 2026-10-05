@@ -1,7 +1,11 @@
-name: Deploy World of Warcraft Forever Identity Suite
+name: CI Build & Test Verification
 
 on:
   push:
+    branches:
+      - main
+      - master
+  pull_request:
     branches:
       - main
       - master
@@ -9,16 +13,10 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: 'pages'
-  cancel-in-progress: true
 
 jobs:
-  build:
-    name: Build & Test
+  test-build:
+    name: Build & Integrity Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -28,34 +26,23 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
 
       - name: Install Dependencies
-        run: |
-          if [ -f package-lock.json ]; then
-            npm ci
-          else
-            npm install
-          fi
+        run: npm install
 
-      - name: Build Application
+      - name: Run TypeScript & Lint Check
+        run: npm run lint
+
+      - name: Build Application (Vite Production)
         run: npm run build
         env:
           VITE_GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
-      - name: Upload Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist
-
-  deploy:
-    name: Deploy to GitHub Pages
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Verify Build Output
+        run: |
+          if [ -f dist/index.html ]; then
+            echo "✅ Build verified successfully: dist/index.html is ready!"
+          else
+            echo "❌ Error: dist/index.html not found!"
+            exit 1
+          fi
