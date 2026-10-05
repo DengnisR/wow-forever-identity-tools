@@ -115,7 +115,7 @@ Rules:
           systemInstruction:
             'Fast Warcraft name forge. Output valid JSON. Strictly 1 single word for firstName and 1 single word for surname (no spaces).',
           responseMimeType: 'application/json',
-          maxOutputTokens: 160,
+          maxOutputTokens: 1500,
           responseSchema: {
             type: Type.OBJECT,
             properties: {
@@ -152,12 +152,17 @@ Rules:
           systemInstruction:
             'Fast Warcraft name forge. Output valid JSON. Strictly 1 single word for firstName and 1 single word for surname.',
           responseMimeType: 'application/json',
-          maxOutputTokens: 160,
+          maxOutputTokens: 1500,
         },
       });
     }
 
-    const text = response.text?.trim() || '{}';
+    let text = response.text?.trim() || '{}';
+    const firstBrace = text.indexOf('{');
+    const lastBrace = text.lastIndexOf('}');
+    if (firstBrace !== -1 && lastBrace !== -1 && lastBrace >= firstBrace) {
+      text = text.substring(firstBrace, lastBrace + 1);
+    }
     const parsed = JSON.parse(text);
     const names = Array.isArray(parsed) ? parsed : [parsed];
 

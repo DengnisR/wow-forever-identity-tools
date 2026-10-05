@@ -46,13 +46,16 @@ Rules:
     const body = {
       contents: [
         {
-          parts: [{ text: prompt }],
+          parts: [{ text: `${prompt}\n\nIMPORTANT: Output ONLY the valid JSON object directly. No preamble, no Markdown fences.` }],
         },
       ],
       generationConfig: {
         responseMimeType: 'application/json',
         temperature: 0.8,
-        maxOutputTokens: 220,
+        maxOutputTokens: 2048,
+        thinkingConfig: {
+          thinkingBudget: 0,
+        },
         responseSchema: {
           type: 'OBJECT',
           properties: {
@@ -88,10 +91,19 @@ Rules:
     console.warn('gemini-3.8-flash failed, attempting gemini-3.1-flash-lite fallback:', err);
     data = await callModel('gemini-3.1-flash-lite');
   }
-  const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+  const parts = data.candidates?.[0]?.content?.parts || [];
+  const rawText = parts.map((p: any) => p.text || '').join('').trim();
   if (!rawText) throw new Error('No candidate content returned from Gemini');
 
-  const parsed = JSON.parse(rawText);
+  let jsonStr = rawText;
+  const firstBrace = jsonStr.indexOf('{');
+  const lastBrace = jsonStr.lastIndexOf('}');
+  if (firstBrace !== -1 && lastBrace !== -1 && lastBrace >= firstBrace) {
+    jsonStr = jsonStr.substring(firstBrace, lastBrace + 1);
+  }
+
+  const parsed = JSON.parse(jsonStr);
   const items = Array.isArray(parsed) ? parsed : [parsed];
   const allowedClasses = getRaceAllowedClasses(race, faction);
 
