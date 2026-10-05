@@ -6,6 +6,7 @@
   <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 19" />
   <img src="https://img.shields.io/badge/TypeScript-Ready-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
   <img src="https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/Hosted%20On-Cloudflare%20Pages-F38020?style=for-the-badge&logo=cloudflare&logoColor=white" alt="Cloudflare Pages" />
   <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="License" />
 </p>
 
@@ -124,14 +125,23 @@ npm run build
 
 ---
 
-## 🌐 Despliegue en GitHub Pages
+## 🌐 Despliegue en Cloudflare Pages (Hosting Recomendado)
 
-El repositorio incluye un flujo automatizado en `.github/workflows/deploy.yml`.
+Este proyecto está optimizado para desplegarse de forma ultrarrápida y global en **Cloudflare Pages**:
 
-1. En tu repositorio de GitHub, ve a **Settings** > **Pages**.
-2. En **Build and deployment** > **Source**, selecciona **GitHub Actions**.
-3. Si deseas habilitar la IA en GitHub Pages, ve a **Settings** > **Secrets and variables** > **Actions** y añade tu secret `GEMINI_API_KEY`.
-4. ¡Cada `git push` a `main` publicará automáticamente la web en `https://<tu-usuario>.github.io/<repositorio>/`!
+1. Inicia sesión en tu panel de [Cloudflare Dashboard](https://dash.cloudflare.com/) y dirígete a **Workers & Pages**.
+2. Haz clic en **Create application** > pestaña **Pages** > **Connect to Git**.
+3. Selecciona tu repositorio: `DengnisR/wow-forever-identity-tools`.
+4. En los ajustes de compilación (*Build settings*):
+   - **Framework preset:** `Vite`
+   - **Build command:** `npm run build`
+   - **Build output directory:** `dist`
+5. En **Environment variables** (Variables de entorno de producción):
+   - Añade la variable: `VITE_GEMINI_API_KEY` con el valor de tu clave de Google AI Studio.
+6. Haz clic en **Save and Deploy**.
+7. ¡Listo! Cloudflare compilará y distribuirá tu aplicación a nivel mundial bajo una URL segura `https://wow-forever-identity-tools.pages.dev` (o con tu propio dominio personalizado).
+
+*(Nota: También es compatible con cualquier hosting estático o Node fullstack como Render, Vercel o Netlify).*
 
 ---
 
@@ -147,6 +157,9 @@ Si tienes sugerencias para añadir nuevas razas aliadas, reglas de linaje o dese
 
 ---
 
-## ⚖️ Aviso Legal y Reconocimientos
+## ⚖️ Aviso Legal, Afiliación & Publicidad
 
-*World of Warcraft*, *Warcraft*, *Blizzard Entertainment* y sus logotipos asociados son marcas comerciales o marcas registradas de Blizzard Entertainment, Inc. Este proyecto es una aplicación no comercial creada por y para la comunidad de aficionados, bajo propósitos educativos, narrativos y de tributo al lore.
+*World of Warcraft®*, *Warcraft®*, *Blizzard Entertainment®* y sus logotipos asociados son marcas comerciales o marcas registradas de Blizzard Entertainment, Inc. en los EE. UU. y/u otros países.
+
+- **Proyecto de la Comunidad:** Este sitio web es una herramienta comunitaria independiente y de acceso 100% libre y gratuito, desarrollada por y para jugadores y aficionados al lore de Warcraft, alojada sobre la red global de Cloudflare. No está afiliada, asociada, respaldada ni patrocinada por Blizzard Entertainment.
+- **Transparencia en Publicidad:** La presencia de anuncios publicitarios y enlaces recomendados tiene como único propósito sufragar los costes de consumo de la API de Inteligencia Artificial (Gemini), servicios de infraestructura de red y el tiempo de desarrollo continuo dedicado a mantener estas herramientas actualizadas y gratuitas para toda la comunidad aventurera, sin muros de pago ni suscripciones.

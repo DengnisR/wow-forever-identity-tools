@@ -334,11 +334,11 @@ export default function App() {
           </div>
 
           {/* Legal Notice / Blizzard Disclaimer */}
-          <div className="pt-2 border-t border-[#1a140d] text-[10px] text-[#6b5d4f] leading-relaxed text-center sm:text-left">
+          <div className="pt-2.5 border-t border-[#1a140d] text-[10px] text-[#70604e] leading-relaxed text-center sm:text-left">
             <p>
               {isEs
-                ? 'Aviso Legal: World of Warcraft®, Warcraft® y Blizzard Entertainment® son marcas comerciales o marcas registradas de Blizzard Entertainment, Inc. en los EE. UU. y/u otros países. Esta herramienta es un proyecto independiente sin fines comerciales creado por y para la comunidad de aficionados al rol. No está asociada, afiliada ni respaldada por Blizzard Entertainment.'
-                : 'Legal Disclaimer: World of Warcraft®, Warcraft®, and Blizzard Entertainment® are trademarks or registered trademarks of Blizzard Entertainment, Inc. in the U.S. and/or other countries. This tool is an independent, non-commercial fan-created utility for roleplaying enthusiasts. Not affiliated with or endorsed by Blizzard Entertainment.'}
+                ? 'Aviso Legal & Afiliación: World of Warcraft®, Warcraft® y Blizzard Entertainment® son marcas comerciales o marcas registradas de Blizzard Entertainment, Inc. en los EE. UU. y/u otros países. Esta web es una herramienta comunitaria independiente y de acceso 100% libre y gratuito para aficionados al rol, alojada en la infraestructura global de Cloudflare. No está afiliada, respaldada ni patrocinada por Blizzard Entertainment. La publicidad mostrada en este sitio tiene como único propósito sufragar el consumo de la API de IA (Gemini), los servicios de red y el tiempo de desarrollo continuo para mantener las herramientas abiertas y actualizadas para la comunidad.'
+                : 'Legal Disclaimer & Affiliation: World of Warcraft®, Warcraft®, and Blizzard Entertainment® are trademarks or registered trademarks of Blizzard Entertainment, Inc. in the U.S. and/or other countries. This website is an independent community tool, completely free and open for roleplaying enthusiasts, powered by Cloudflare global infrastructure. It is not affiliated with, endorsed by, or sponsored by Blizzard Entertainment. Advertisements displayed on this site serve solely to help support Gemini AI API consumption, network services, and ongoing development time to keep these tools freely accessible.'}
             </p>
             <p className="mt-1 font-mono text-[9px] text-[#55493d]">
               © 2026 DengnisR · wow-forever-identity-tools · {isEs ? 'Todos los derechos reservados.' : 'All rights reserved.'}
