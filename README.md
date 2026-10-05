@@ -136,6 +136,7 @@ Este proyecto está optimizado para desplegarse de forma ultrarrápida y global 
    - **Framework preset:** `Vite`
    - **Build command:** `npm run build`
    - **Build output directory:** `dist`
+   - **Install command:** `npm install`
 5. En **Environment variables** (Variables de entorno de producción):
    - Añade la variable: `VITE_GEMINI_API_KEY` con el valor de tu clave de Google AI Studio.
 6. Haz clic en **Save and Deploy**.
