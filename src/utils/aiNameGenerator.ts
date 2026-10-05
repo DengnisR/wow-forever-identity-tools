@@ -41,43 +41,53 @@ Rules:
 - meaning: 1 short sentence about the surname lore.
 - suggestedClass: ${characterClass || 'Appropriate class for race'}.`;
 
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`;
-
-  const body = {
-    contents: [
-      {
-        parts: [{ text: prompt }],
-      },
-    ],
-    generationConfig: {
-      responseMimeType: 'application/json',
-      temperature: 0.8,
-      maxOutputTokens: 220,
-      responseSchema: {
-        type: 'OBJECT',
-        properties: {
-          firstName: { type: 'STRING', description: 'First name - strictly 1 single word.' },
-          surname: { type: 'STRING', description: 'Surname - strictly 1 single word.' },
-          title: { type: 'STRING', description: 'Short title.' },
-          meaning: { type: 'STRING', description: 'Brief surname lore meaning.' },
-          suggestedClass: { type: 'STRING', description: 'WoW class.' },
+  const callModel = async (modelName: string) => {
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${encodeURIComponent(apiKey)}`;
+    const body = {
+      contents: [
+        {
+          parts: [{ text: prompt }],
         },
-        required: ['firstName', 'surname', 'meaning'],
+      ],
+      generationConfig: {
+        responseMimeType: 'application/json',
+        temperature: 0.8,
+        maxOutputTokens: 220,
+        responseSchema: {
+          type: 'OBJECT',
+          properties: {
+            firstName: { type: 'STRING', description: 'First name - strictly 1 single word.' },
+            surname: { type: 'STRING', description: 'Surname - strictly 1 single word.' },
+            title: { type: 'STRING', description: 'Short title.' },
+            meaning: { type: 'STRING', description: 'Brief surname lore meaning.' },
+            suggestedClass: { type: 'STRING', description: 'WoW class.' },
+          },
+          required: ['firstName', 'surname', 'meaning'],
+        },
       },
-    },
+    };
+
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+
+    if (!res.ok) {
+      const errText = await res.text().catch(() => '');
+      throw new Error(`Gemini direct API (${modelName}) returned status ${res.status}: ${errText}`);
+    }
+
+    return res.json();
   };
 
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  });
-
-  if (!response.ok) {
-    throw new Error(`Gemini direct API returned status ${response.status}`);
+  let data;
+  try {
+    data = await callModel('gemini-3.8-flash');
+  } catch (err) {
+    console.warn('gemini-3.8-flash failed, attempting gemini-3.1-flash-lite fallback:', err);
+    data = await callModel('gemini-3.1-flash-lite');
   }
-
-  const data = await response.json();
   const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
   if (!rawText) throw new Error('No candidate content returned from Gemini');
 
