@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <!-- Outer Golden Gradient -->
+    <linearGradient id="goldRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe885" />
+      <stop offset="35%" stop-color="#ffd100" />
+      <stop offset="70%" stop-color="#b8860b" />
+      <stop offset="100%" stop-color="#5a3d0e" />
+    </linearGradient>
+
+    <!-- Inner Core Gradient -->
+    <radialGradient id="darkCore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#24190e" />
+      <stop offset="60%" stop-color="#140e08" />
+      <stop offset="100%" stop-color="#080604" />
+    </radialGradient>
+
+    <!-- Blade Steel Gradient -->
+    <linearGradient id="bladeSteel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="40%" stop-color="#cbd5e1" />
+      <stop offset="80%" stop-color="#64748b" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+
+    <!-- Center Gem Radiant Glow -->
+    <radialGradient id="gemGlow" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#e0f2fe" />
+      <stop offset="30%" stop-color="#38bdf8" />
+      <stop offset="75%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#034b75" />
+    </radialGradient>
+
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#000000" flood-opacity="0.9" />
+    </filter>
+  </defs>
+
+  <!-- Outer Medallion Border -->
+  <circle cx="32" cy="32" r="30" fill="url(#goldRim)" filter="url(#shadow)" />
+  <circle cx="32" cy="32" r="27.5" fill="#1f140a" />
+  <circle cx="32" cy="32" r="26" fill="url(#goldRim)" />
+  <circle cx="32" cy="32" r="24.5" fill="url(#darkCore)" />
+
+  <!-- 8 Cardinal Runic Rivets -->
+  <circle cx="32" cy="4.5" r="1.5" fill="#ffe885" />
+  <circle cx="32" cy="59.5" r="1.5" fill="#ffe885" />
+  <circle cx="4.5" cy="32" r="1.5" fill="#ffe885" />
+  <circle cx="59.5" cy="32" r="1.5" fill="#ffe885" />
+  <circle cx="12.5" cy="12.5" r="1.2" fill="#d4af37" />
+  <circle cx="51.5" cy="12.5" r="1.2" fill="#d4af37" />
+  <circle cx="12.5" cy="51.5" r="1.2" fill="#d4af37" />
+  <circle cx="51.5" cy="51.5" r="1.2" fill="#d4af37" />
+
+  <!-- Crossed Warcraft Swords -->
+  <g filter="url(#shadow)">
+    <!-- Sword 1: Top-Left to Bottom-Right -->
+    <!-- Blade -->
+    <path d="M12 12 L20 10 L48 44 L44 48 Z" fill="url(#bladeSteel)" />
+    <!-- Blade Fuller / Center Line -->
+    <path d="M13 11 L16 14 L42 46" stroke="#ffffff" stroke-width="0.8" opacity="0.8" />
+    <!-- Crossguard -->
+    <path d="M41 40 L49 38 L51 43 L43 45 Z" fill="url(#goldRim)" stroke="#3a2507" stroke-width="0.5" />
+    <!-- Grip & Pommel -->
+    <path d="M47 45 L53 51" stroke="#854d0e" stroke-width="2.5" stroke-linecap="round" />
+    <circle cx="54" cy="52" r="2.2" fill="url(#goldRim)" />
+
+    <!-- Sword 2: Top-Right to Bottom-Left -->
+    <!-- Blade -->
+    <path d="M52 12 L44 10 L16 44 L20 48 Z" fill="url(#bladeSteel)" />
+    <!-- Blade Fuller -->
+    <path d="M51 11 L48 14 L22 46" stroke="#ffffff" stroke-width="0.8" opacity="0.8" />
+    <!-- Crossguard -->
+    <path d="M23 40 L15 38 L13 43 L21 45 Z" fill="url(#goldRim)" stroke="#3a2507" stroke-width="0.5" />
+    <!-- Grip & Pommel -->
+    <path d="M17 45 L11 51" stroke="#854d0e" stroke-width="2.5" stroke-linecap="round" />
+    <circle cx="10" cy="52" r="2.2" fill="url(#goldRim)" />
+  </g>
+
+  <!-- Center Gothic Crest Shield -->
+  <g filter="url(#shadow)">
+    <!-- Shield Rim -->
+    <path d="M32 18 L42 23 L42 34 C42 41 37 47 32 50 C27 47 22 41 22 34 L22 23 Z" fill="url(#goldRim)" stroke="#3a2507" stroke-width="0.8" />
+    <!-- Shield Inner Body -->
+    <path d="M32 20.5 L39.5 24.5 L39.5 33.5 C39.5 39 35.5 44 32 46.5 C28.5 44 24.5 39 24.5 33.5 L24.5 24.5 Z" fill="#0d0905" />
+
+    <!-- Radiant Arcane Core Gem -->
+    <path d="M32 25 L37 31 L32 39 L27 31 Z" fill="url(#gemGlow)" stroke="#7dd3fc" stroke-width="0.6" />
+    <!-- Facet highlights -->
+    <path d="M32 25 L32 39" stroke="#ffffff" stroke-width="0.6" opacity="0.75" />
+    <path d="M27 31 L37 31" stroke="#ffffff" stroke-width="0.6" opacity="0.75" />
+    <circle cx="31" cy="29" r="0.9" fill="#ffffff" />
+  </g>
+</svg>
