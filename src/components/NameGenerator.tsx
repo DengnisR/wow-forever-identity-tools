@@ -211,7 +211,16 @@ export const NameGenerator: React.FC<NameGeneratorProps> = ({
                 </span>
                 <span aria-hidden="true" className="text-[#574735]">·</span>
                 <span className="text-[#a69680]">
-                  {isEs ? 'Capital:' : 'Capital:'} {isEs ? currentRaceInfo.capital : currentRaceInfo.capitalEn}
+                  Capital:{' '}
+                  {selectedRace === 'skyborn'
+                    ? isHorde
+                      ? isEs
+                        ? 'El Círculo de la Tierra'
+                        : 'The Earthen Ring'
+                      : 'Dalaran'
+                    : isEs
+                    ? currentRaceInfo.capital
+                    : currentRaceInfo.capitalEn}
                 </span>
               </div>
               <div className="flex items-center gap-2 mt-0.5">
@@ -226,10 +235,14 @@ export const NameGenerator: React.FC<NameGeneratorProps> = ({
               </div>
             </div>
 
-            <div className="flex sm:flex-col items-center sm:items-end justify-between sm:justify-center gap-1">
-              <span className="text-[11px] text-[#8c7b67] block">{isEs ? 'Líder:' : 'Leader:'}</span>
-              <span className="font-cinzel text-xs font-semibold text-[#ffd100]">{currentRaceInfo.leader}</span>
-            </div>
+            {currentRaceInfo.leader && (
+              <div className="flex sm:flex-col items-center sm:items-end justify-between sm:justify-center gap-1">
+                <span className="text-[11px] text-[#8c7b67] block">{isEs ? 'Líder:' : 'Leader:'}</span>
+                <span className="font-cinzel text-xs font-semibold text-[#ffd100]">
+                  {isEs ? currentRaceInfo.leader : currentRaceInfo.leaderEn || currentRaceInfo.leader}
+                </span>
+              </div>
+            )}
           </div>
 
           {/* Allowed Classes Selectable Buttons with Key New Combos */}
@@ -455,9 +468,6 @@ export const NameGenerator: React.FC<NameGeneratorProps> = ({
                 </span>
               )}
             </div>
-            <span className="text-[11px] font-cinzel text-[#8c7b67]">
-              {isEs ? '1 palabra nombre + 1 palabra apellido' : '1 word first name + 1 word surname'}
-            </span>
           </div>
 
           <div className="space-y-2">

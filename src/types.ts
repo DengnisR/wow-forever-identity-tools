@@ -22,9 +22,7 @@ export type ClassId =
   | 'shaman'
   | 'mage'
   | 'warlock'
-  | 'druid'
-  | 'monk'
-  | 'death_knight';
+  | 'druid';
 
 export type Gender = 'male' | 'female' | 'neutral';
 
@@ -44,7 +42,12 @@ export interface RaceInfo {
   faction: Faction;
   capital: string;
   capitalEn: string;
-  leader: string;
+  capitalAlliance?: string;
+  capitalAllianceEn?: string;
+  capitalHorde?: string;
+  capitalHordeEn?: string;
+  leader?: string;
+  leaderEn?: string;
   description: string;
   descriptionEn: string;
   namingPhilosophy: string;

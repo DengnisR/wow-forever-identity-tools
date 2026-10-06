@@ -110,12 +110,12 @@ export const LoreEncyclopedia: React.FC<LoreEncyclopediaProps> = ({ onSelectRace
             </div>
             <div className="p-2.5 bg-[#0d0a07] border border-[#2b2014] rounded-[2px]">
               <div className="font-cinzel font-bold text-[#38bdf8] mb-0.5">
-                {isEs ? '⚡ Cielonatos: Elfos Azules' : '⚡ Skyborn: Blue Elves'}
+                {isEs ? '⚡ Cielonatos' : '⚡ Skyborne'}
               </div>
               <p className="text-[11px] text-[#8f7e69]">
                 {isEs
-                  ? 'La nueva raza de elfos azules venera las corrientes de viento y la luz estelar con apellidos etéreos de una sola palabra (ej. Cielonato, Formavientos, Alaceleste).'
-                  : 'The new blue elf race reveres atmospheric currents and celestial starlight with single-word ethereal names (e.g., Skyborn, Windshaper, Cloudstrider).'}
+                  ? 'Los Cielonatos no poseen una ciudad capital única ni líder soberano debido a su división espiritual: la vertiente de la Alianza se asienta en Dalaran, mientras que la de la Horda se congrega en El Círculo de la Tierra. Veneran las corrientes de viento y la luz estelar con apellidos etéreos de una sola palabra (ej. Cielonato, Formavientos, Alaceleste).'
+                  : 'The Skyborne hold no single sovereign capital or supreme leader due to spiritual divergence: the Alliance branch operates from Dalaran, while the Horde convenes at The Earthen Ring. They revere atmospheric currents and starlight with single-word ethereal names (e.g., Skyborn, Windshaper, Cloudstrider).'}
               </p>
             </div>
           </div>
@@ -161,7 +161,8 @@ export const LoreEncyclopedia: React.FC<LoreEncyclopediaProps> = ({ onSelectRace
                   {isEs ? race.name : race.nameEn}
                 </span>
                 <span className="text-[#8f7e69] ml-2 text-[11px]">
-                  {isEs ? 'Capital:' : 'Capital:'} {isEs ? race.capital : race.capitalEn} · {isEs ? 'Líder:' : 'Leader:'} {race.leader}
+                  {isEs ? 'Capital:' : 'Capital:'} {isEs ? race.capital : race.capitalEn}
+                  {race.leader ? ` · ${isEs ? 'Líder:' : 'Leader:'} ${isEs ? race.leader : race.leaderEn || race.leader}` : ''}
                 </span>
               </div>
               <button

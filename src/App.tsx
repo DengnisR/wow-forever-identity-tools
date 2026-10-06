@@ -9,6 +9,7 @@ import { NameGenerator } from './components/NameGenerator';
 import { PersonalityQuiz } from './components/PersonalityQuiz';
 import { LoreEncyclopedia } from './components/LoreEncyclopedia';
 import { SavedCharactersModal } from './components/SavedCharactersModal';
+import { VersionModal } from './components/VersionModal';
 import { WowWindow } from './components/OrnateFrame';
 import { GeneratedName, SavedCharacter, RaceId, Language } from './types';
 import { isSoundEnabled, setSoundEnabled, playTabSound, playClickSound } from './utils/soundEffects';
@@ -17,6 +18,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<'generator' | 'quiz' | 'encyclopedia'>('generator');
   const [language, setLanguage] = useState<Language>('es');
   const [isSavedModalOpen, setIsSavedModalOpen] = useState<boolean>(false);
+  const [isVersionModalOpen, setIsVersionModalOpen] = useState<boolean>(false);
   const [isSoundMuted, setIsSoundMuted] = useState<boolean>(!isSoundEnabled());
   const [preselectedRace, setPreselectedRace] = useState<RaceId>('human');
 
@@ -218,6 +220,20 @@ export default function App() {
                   </span>
                 </button>
 
+                {/* Version Indicator Button */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    playClickSound();
+                    setIsVersionModalOpen(true);
+                  }}
+                  className="wow-btn px-2 py-1 text-xs rounded-[3px] flex items-center gap-1 font-mono text-[#ffd100] hover:text-[#fff4d1]"
+                  title={isEs ? 'Ver versión y registro del programa' : 'View program version and changelog'}
+                >
+                  <span className="text-[10px] text-[#8f7e6a]">v</span>
+                  <span className="text-[11px] font-bold">1.2.0</span>
+                </button>
+
                 {/* GitHub Repository Link */}
                 <a
                   href="https://github.com/DengnisR/wow-forever-identity-tools"
@@ -280,6 +296,13 @@ export default function App() {
         language={language}
       />
 
+      {/* Program Version & Changelog Modal */}
+      <VersionModal
+        isOpen={isVersionModalOpen}
+        onClose={() => setIsVersionModalOpen(false)}
+        language={language}
+      />
+
       {/* Comprehensive In-Game Lore & Legal Footer */}
       <footer className="border-t border-[#241a10] bg-[#070604] py-5 text-[11px] text-[#8f7e6a] select-none">
         <div className="max-w-5xl mx-auto px-4 flex flex-col gap-3.5">
@@ -304,6 +327,19 @@ export default function App() {
                 </svg>
                 <span>GitHub</span>
               </a>
+
+              {/* Program Version Button */}
+              <button
+                type="button"
+                onClick={() => {
+                  playClickSound();
+                  setIsVersionModalOpen(true);
+                }}
+                className="inline-flex items-center gap-1 px-2 py-0.5 rounded-[2px] bg-[#14100b] border border-[#3d2f20] text-[#ffd100] hover:text-[#fff0a6] hover:border-[#ffd100] transition-colors font-mono text-[11px]"
+                title={isEs ? 'Ver versión y registro de cambios' : 'View version and changelog'}
+              >
+                <span>📜 v1.2.0</span>
+              </button>
 
               {/* Recommended Games Smartlink */}
               <a

@@ -183,7 +183,7 @@ export const FactionRaceBanners: React.FC<FactionRaceBannersProps> = ({
         </div>
       </div>
 
-      {/* New Race: Skyborne placed at the bottom (Elfos Azules) with Alliance / Horde options */}
+      {/* New Race: Skyborne placed at the bottom (Cielonatos) with Alliance / Horde options */}
       <div className="mt-3.5 w-full">
         <div
           className={`w-full p-2.5 rounded-sm flex flex-col items-center transition-all ${
@@ -196,7 +196,7 @@ export const FactionRaceBanners: React.FC<FactionRaceBannersProps> = ({
         >
           <div className="flex items-center gap-1.5 text-[9px] font-cinzel font-bold text-[#38bdf8] tracking-widest uppercase mb-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-[#38bdf8] animate-pulse" />
-            {language === 'es' ? 'NUEVA RAZA · SKYBORNE' : 'NEW RACE · SKYBORNE'}
+            {language === 'es' ? 'NUEVA RAZA · CIELONATOS' : 'NEW RACE · SKYBORNE'}
           </div>
 
           {/* Main Portrait & Title as Clickable Button */}
@@ -227,10 +227,10 @@ export const FactionRaceBanners: React.FC<FactionRaceBannersProps> = ({
                   isSkybornSelected ? 'text-[#ffd100]' : 'text-[#f0e4cf] group-hover:text-[#ffd100]'
                 }`}
               >
-                Skyborne
+                {language === 'es' ? 'Cielonatos' : 'Skyborne'}
               </span>
               <span className="text-[10px] text-[#7dd3fc] font-cinzel leading-tight mt-0.5">
-                {language === 'es' ? 'Elfos Azules' : 'Blue Elves'}
+                {language === 'es' ? 'Linaje Celestial' : 'Celestial Lineage'}
               </span>
               <span className="text-[9px] text-[#93c5fd]/80 leading-tight">
                 {isHordeSkyborn

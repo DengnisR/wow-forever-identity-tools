@@ -41,14 +41,16 @@ export const WowWindow: React.FC<WowWindowProps> = ({
         <div className="flex items-center gap-2">
           {headerActions}
           {onClose && (
-            <button
-              type="button"
+            <a
+              href="https://latherburial.com/r5164skyp?key=c86606f821db7c4ba4390f306da2e73e"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={onClose}
-              className="w-5 h-5 rounded-[2px] bg-[#611313] hover:bg-[#851919] border border-[#a88238] hover:border-[#ffd100] flex items-center justify-center text-[11px] font-bold text-[#ffd100] shadow-[0_1px_3px_rgba(0,0,0,0.8)] transition-colors"
+              className="w-5 h-5 rounded-[2px] bg-[#611313] hover:bg-[#851919] border border-[#a88238] hover:border-[#ffd100] flex items-center justify-center text-[11px] font-bold text-[#ffd100] shadow-[0_1px_3px_rgba(0,0,0,0.8)] transition-colors cursor-pointer select-none"
               title="Cerrar"
             >
               ✕
-            </button>
+            </a>
           )}
         </div>
       </div>

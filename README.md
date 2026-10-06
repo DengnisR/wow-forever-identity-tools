@@ -40,7 +40,7 @@ Demasiadas veces vemos generadores de nombres genéricos que mezclan palabras al
 - **Los Tauren de Mulgore** caminan en armonía con la Madre Tierra y sus tótems ancestrales (*Pezuñasangre, Tótembravo, Astafiel*).
 - **Los Troles Lanza Negra** canalizan el vudú sagrado de los Loa y los ritos de caza selvática (*Lanzanegra, Dientevudú, Sombraselva*).
 - **Los Gnomos de Gnomeregan** son pura chispa, engranaje y vapor excéntrico (*Chispatuerca, Girovapor, Muelleloco*).
-- **Los Cielonatos (Elfos Azules)**, como homenaje a nuevas corrientes de rol fantástico, exploran los vientos celestes y las estrellas (*Cielonato, Formavientos, Alaceleste*).
+- **Los Cielonatos (Skyborne)**, como linaje celestial de las cumbres de Azeroth, exploran los vientos celestes y las estrellas (*Cielonato, Formavientos, Alaceleste*).
 
 Esta herramienta está hecha por un rolero, para roleros y amantes de este universo.
 

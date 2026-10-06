@@ -57,7 +57,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
         flavor: 'Quien camina en las sombras decide quién amanece al día siguiente.',
         flavorEn: 'Those who walk silently in shadows decide who lives to see another dawn.',
         raceAffinity: { undead: 5, troll: 3, gnome: 1 },
-        classAffinity: { rogue: 5, warlock: 4, death_knight: 2 },
+        classAffinity: { rogue: 5, warlock: 4 },
       },
     ],
   },
@@ -78,7 +78,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
         flavor: 'El impacto enemigo se quiebra contra ti. Mientras sigas en pie, ningún aliado caerá.',
         flavorEn: 'The enemy assault shatters against your shield. While you stand, no ally falls.',
         raceAffinity: { dwarf: 4, human: 4, tauren: 3, orc: 2 },
-        classAffinity: { warrior: 5, paladin: 4, death_knight: 2 },
+        classAffinity: { warrior: 5, paladin: 4 },
       },
       {
         id: '2b',
@@ -87,7 +87,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
         flavor: 'Tu ataque es un torbellino implacable que devora escudos y armaduras.',
         flavorEn: 'A relentless whirlwind that sunders armor and terrorizes enemy ranks.',
         raceAffinity: { orc: 5, dwarf: 3, undead: 1, troll: 2 },
-        classAffinity: { warrior: 5, death_knight: 3 },
+        classAffinity: { warrior: 5 },
       },
       {
         id: '2c',
@@ -155,7 +155,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
         flavor: 'Esperarás semanas si es necesario; su castigo será una obra meticulosa.',
         flavorEn: 'You will wait patiently for weeks; their punishment will be absolute.',
         raceAffinity: { undead: 5, troll: 3 },
-        classAffinity: { rogue: 4, warlock: 4, death_knight: 3 },
+        classAffinity: { rogue: 4, warlock: 4 },
       },
       {
         id: '3d',
@@ -164,7 +164,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
         flavor: 'El rencor ata el alma; la sabiduría espiritual renueva el curso del destino.',
         flavorEn: 'Grudges weigh the soul down; high spiritual vision renews our destiny.',
         raceAffinity: { skyborn: 5, night_elf: 4, tauren: 3 },
-        classAffinity: { shaman: 4, druid: 4, monk: 3 },
+        classAffinity: { shaman: 4, druid: 4, priest: 3 },
       },
     ],
   },
@@ -245,8 +245,6 @@ export function calculateQuizResult(selectedOptionIds: string[], language: Langu
     mage: 0,
     warlock: 0,
     druid: 0,
-    monk: 0,
-    death_knight: 0,
   };
 
   QUIZ_QUESTIONS.forEach((q) => {

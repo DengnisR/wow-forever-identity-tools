@@ -109,7 +109,15 @@ export const PersonalityQuiz: React.FC<PersonalityQuizProps> = ({ onSelectRaceFo
                       </span>
                       <span aria-hidden="true" className="text-[#574735]">·</span>
                       <span className="text-[#8f7e6a]">
-                        {isEs ? raceInfo.capital : raceInfo.capitalEn}
+                        {raceInfo.id === 'skyborn'
+                          ? isHorde
+                            ? isEs
+                              ? 'El Círculo de la Tierra'
+                              : 'The Earthen Ring'
+                            : 'Dalaran'
+                          : isEs
+                          ? raceInfo.capital
+                          : raceInfo.capitalEn}
                       </span>
                     </div>
 

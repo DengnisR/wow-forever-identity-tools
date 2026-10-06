@@ -148,7 +148,7 @@ export const RacePortrait: React.FC<RacePortraitProps> = ({ race, size = 52, cla
 
     case 'skyborn':
     default:
-      // The Blue Elves (Cielonato / Skyborn) from the user's screenshot!
+      // The Skyborne (Cielonato) portrait
       // Light blue skin, pale silver/cyan hair, pointed ears, glowing amber/gold eyes
       return (
         <svg viewBox="0 0 64 64" width={size} height={size} className={className}>
