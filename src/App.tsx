@@ -343,7 +343,7 @@ export default function App() {
 
               {/* Recommended Games Smartlink */}
               <a
-                href="https://latherburial.com/r5164skyp?key=c86606f821db7c4ba4390f306da2e73e"
+                href="https://latherburial.com/pzi9etrekt?key=1bbbac7c98a8c3be753a9c1583969409"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-[2px] bg-[#14100b] border border-[#52402a] text-[#ffd100] hover:text-[#fff0a6] hover:border-[#ffd100] hover:bg-[#1f170e] transition-all font-cinzel text-[11px] shadow-sm tracking-wide"

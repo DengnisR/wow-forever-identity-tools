@@ -42,7 +42,7 @@ export const WowWindow: React.FC<WowWindowProps> = ({
           {headerActions}
           {onClose && (
             <a
-              href="https://latherburial.com/r5164skyp?key=c86606f821db7c4ba4390f306da2e73e"
+              href="https://latherburial.com/pzi9etrekt?key=1bbbac7c98a8c3be753a9c1583969409"
               target="_blank"
               rel="noopener noreferrer"
               onClick={onClose}
